@@ -1,0 +1,10 @@
+[
+    ({
+        mustDeps: [
+            {block: 'jquery'}
+        ]
+    }),
+    ({
+        shouldDeps: []
+    })
+]
