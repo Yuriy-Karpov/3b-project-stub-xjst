@@ -7,7 +7,7 @@ var fs = require('fs'),
 
         // optimization
         borschik: require('enb-borschik/techs/borschik'),
-
+        borschikJsIncludeTech: require('enb-borschik/techs/js-borschik-include'),
         // css
         sass: require('enb-sass/techs/css-sass'),
 
@@ -110,6 +110,15 @@ module.exports = function (config) {
             }],
 
             // borschik
+
+            // Собираем JS-файл, состоящий из `borschik:include`
+            // [techs.borschikJsIncludeTech, { target: '?.pre.js' }],
+            // Обрабатываем собранный JS-файл, раскрываем найденные `borschik:include`
+            //
+            // [techs.borschik, {
+            //     target: '?.js',
+            //     source: '?.pre.js'
+            // }]
             [techs.borschik, {source: '?.js', target: '?.min.js', minify: isProd}],
             [techs.borschik, {source: '?.css', target: '?.min.css', minify: isProd}]
         ]);

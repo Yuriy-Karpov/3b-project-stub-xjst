@@ -1,0 +1,1 @@
+/*borschik:include:../../libs/lazysizes/lazysizes.min.js*/;

@@ -8,6 +8,9 @@
     "libs"
   ],
   "dependencies": {
-    "bem-core": "latest"
+    "bem-core": "latest",
+    "jquery-throttle-debounce": "https://github.com/cowboy/jquery-throttle-debounce.git",
+    "lazysizes": "latest",
+    "bootstrap-multiselect": "latest"
   }
 }

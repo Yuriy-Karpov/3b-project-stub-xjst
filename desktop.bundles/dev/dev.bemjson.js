@@ -1,13 +1,12 @@
 module.exports = {
     block : 'page',
     title : 'Title of the page',
-    favicon : '/favicon.ico',
     head : [
         { elem : 'meta', attrs : { name : 'description', content : '' } },
         { elem : 'meta', attrs : { name : 'viewport', content : 'width=device-width, initial-scale=1' } },
-        { elem : 'css', url : 'dev.css' },
+        { elem : 'css', url : '../_merged/_merged.css' },
     ],
-    scripts: [{ elem : 'js', url : 'dev.min.js' }],
+    scripts: [{ elem : 'js', url : '../_merged/_merged.min.js' }],
     content : [
         {
             block : 'header',
@@ -32,22 +31,30 @@ module.exports = {
                     content: 'кнопка'
                 },
                 {
-                    block: 'dev-def',
-                    text: 'tw',
-                    content: 'tratata'
-                }
-                
+                    block: 'checkbox',
+                    name: 'newcheckbox',
+                    content: 'checkbox'
+                },
+                {
+                    block: 'checkbox',
+                    mods: {custom: true},
+                    content: 'custom checkbox'
+                },
+                {
+                    block: 'img',
+                    url: 'https://pbs.twimg.com/profile_images/3563995166/d0ee78b79b5d806a31c757126e7afe65.png'
+                },
+                {
+                    block: 'img',
+                    mods: {lazyload:true},
+                    url: 'https://pbs.twimg.com/profile_images/3563995166/d0ee78b79b5d806a31c757126e7afe65.png'
+                },
             ]
         },
         {
             block : 'footer',
             content : [
-                {
-                    block: 'dev',
-                    mods: {color: 'green'},
-                    js: true,
-                    content: 'demo dev'
-                },
+
             ]
         }
     ]

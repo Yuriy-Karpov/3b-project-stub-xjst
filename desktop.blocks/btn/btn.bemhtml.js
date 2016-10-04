@@ -5,9 +5,8 @@ block('btn')(
 
     js()(true),
 
-    mix()({block: 'btn-default'}),
-
-    attrs()({
-        href: '#'
-    })
+    mix()({block: 'btn-default'})
+    
+    
+    
 )

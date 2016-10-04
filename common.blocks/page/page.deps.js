@@ -4,7 +4,10 @@
     }),
     ({
         shouldDeps: [
-            {block: 'ua', elem: 'modern'}
+            {elem: ['noscript', 'browsehappy']},
+            {block: 'ua', elem: 'modern'},
+            {block: 'throttle-debounce'},
+            {block: 'lazysizes'}
         ]
     })
 ]
