@@ -9,8 +9,8 @@ var fs = require('fs'),
         borschik: require('enb-borschik/techs/borschik'),
         borschikJsIncludeTech: require('enb-borschik/techs/js-borschik-include'),
         // css
-        sass: require('enb-sass/techs/css-sass'),
-
+        // sass: require('enb-sass/techs/css-sass'),
+        cssSass: require('./techs/css-sass'),
         // js
         browserJs: require('enb-js/techs/browser-js'),
 
@@ -32,14 +32,27 @@ var fs = require('fs'),
         // {path: 'libs/bem-components/desktop.blocks', check: false},
         // {path: 'libs/bem-components/design/common.blocks', check: false},
         // {path: 'libs/bem-components/design/desktop.blocks', check: false},
+        'common.bootstrap',
         'common.blocks',
         'desktop.blocks'
     ];
+// TODO: responsive временно для разработке
+var responsive = true,
+    browsers = [
+        "Explorer >= 11",
+        "Firefox >= 421",
+        "Opera >= 15",
+        "Chrome >= 27",
+        "Safari >= 8",
+        "Android >= 4",
+        "iOS >= 8"
+    ]
 
 module.exports = function (config) {
     var isProd = process.env.YENV === 'production',
         mergedBundleName = '_merged',
         pathToMargedBundle = path.join('desktop.bundles', mergedBundleName);
+
 
     fs.existsSync(pathToMargedBundle) || fs.mkdirSync(pathToMargedBundle);
 
@@ -52,7 +65,7 @@ module.exports = function (config) {
             [techs.fileProvider, {target: '?.bemjson.js'}],
             [enbBemTechs.bemjsonToBemdecl]
         ]);
-        
+
         nodeConfig.addTechs([
             // essential
             [enbBemTechs.levels, {levels: levels}],
@@ -62,10 +75,15 @@ module.exports = function (config) {
             [enbBemTechs.files],
 
             // css
-            [techs.sass, {
+            // [techs.sass, {
+            //     sass: {outputStyle: 'expanded'},
+            // }],
+            [techs.cssSass, {
                 sass: {outputStyle: 'expanded'},
+                responsive: responsive,
+                // globals: [globalsScssPath],
+                autoprefixer: {browsers: browsers}
             }],
-
             // bemtree
             // [techs.bemtree, { sourceSuffixes: ['bemtree', 'bemtree.js'] }],
 
@@ -80,7 +98,7 @@ module.exports = function (config) {
 
             // replace bootstrap class
             [techs.replaceBemClass],
-            
+
             // client bemhtml
             [enbBemTechs.depsByTechToBemdecl, {
                 target: '?.bemhtml.bemdecl.js',
@@ -117,14 +135,31 @@ module.exports = function (config) {
             //
             // [techs.borschik, {
             //     target: '?.js',
-            //     source: '?.pre.js'
+            //     source: '?.dev.js'
             // }]
+            
+            
             [techs.borschik, {source: '?.js', target: '?.min.js', minify: isProd}],
-            [techs.borschik, {source: '?.css', target: '?.min.css', minify: isProd}]
+            
+            // убираем борщик т.к. данный функционал реализован в  techs.cssSass
+            // [techs.borschik, {source: '?.css', target: '?.min.css', minify: isProd}]
+            
         ]);
-
-        isMergedNode || nodeConfig.addTargets(['?.b2.html', '?.html']);
-        nodeConfig.addTargets([/* '?.bemtree.js', */ '?.min.css', '?.min.js']);
         
+        nodeConfig.addTargets([/* '?.bemtree.js',  '?.min.css',*/ '?.css', '?.min.js']);
+        isMergedNode || nodeConfig.addTargets(['?.b2.html', '?.html']);
     });
+    
+    // config.includeConfig('enb-bem-examples'); // Подключаем модуль `enb-bem-examples`.
+    //
+    // var examples = config.module('enb-bem-examples') // Создаём конфигуратор сетов
+    //     .createConfigurator('examples');             //  в рамках `examples`-таска.
+    //
+    // examples.configure({
+    //     destPath: 'desktop.examples',
+    //     levels: ['common.blocks'],
+    //     inlineBemjson: false
+    // });
+
 };
+

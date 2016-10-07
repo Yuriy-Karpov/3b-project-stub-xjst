@@ -1,0 +1,21 @@
+.cart-control__minus {
+  width: 26px;
+  height: 25px;
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  font-family: FontAwesome;
+  text-align: center;
+  line-height: 24px;
+  font-size: 14px;
+  border: 1px solid #d4d4d4;
+  border-radius: 3px;
+  float: left;
+  &:focus,
+  &:hover {
+    text-decoration: none;
+  }
+  &:before {
+    content: "\f068";
+  }
+}

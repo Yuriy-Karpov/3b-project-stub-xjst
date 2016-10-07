@@ -18,7 +18,7 @@ module.exports = {
             block: 'jquery-window'
         },
         {
-            block : 'content',
+            block : 'container',
             content : [
                 {
                     block: 'dev',
@@ -49,6 +49,26 @@ module.exports = {
                     mods: {lazyload:true},
                     url: 'https://pbs.twimg.com/profile_images/3563995166/d0ee78b79b5d806a31c757126e7afe65.png'
                 },
+                {
+                    block: 'alert',
+                    content: 'alert'
+                },
+                {
+                    block: 'breadcrumb',
+                    content: [
+                        {
+                            elem: 'active',
+                            content: 'main'
+                        },
+                        {
+                            elem: 'item',
+                            content: 'breadcrumb'
+                        }
+                    ]
+                },
+                {
+                    block: 'cart-control'
+                }
             ]
         },
         {

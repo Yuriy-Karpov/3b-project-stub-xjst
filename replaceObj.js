@@ -1,8 +1,21 @@
-var replaceObj = {
-    "dev-def__box": "dev-def__box--test",
-    "input_theme_islands": "input--island-test"
+var ivAPI = ivAPI || {};
+
+ivAPI.replaceObj = {
+    default: {},
+    add: function (objClass) {
+        for (var key in objClass) {
+            this.default[key] = objClass[key]
+        }
+    }
 }
+ivAPI.replaceObj.add({
+    "btn-default": "btn-info",
+    "alert-info": "alert-danger"
+})
 
-global.replaceObj = replaceObj;
 
+global.ivAPI = ivAPI;
+
+
+var replaceObj = ivAPI.replaceObj.default;
 module.exports = replaceObj;

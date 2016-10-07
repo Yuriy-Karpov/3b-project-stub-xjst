@@ -6,8 +6,8 @@
     border: 1px #f2ecda solid;
     color: #000;
     text-align: center;
+    .old-browser & {
+        display: block;
+    }
 }
 
-.old-browser & {
-    display: block;
-}
