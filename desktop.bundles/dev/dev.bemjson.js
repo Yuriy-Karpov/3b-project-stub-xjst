@@ -72,6 +72,10 @@ module.exports = {
                             content: 'custom checkbox'
                         },
                         {
+                            block: 'demo-marked',
+                            name: 'checkbox'
+                        },
+                        {
                             block: 'radio',
                             content: 'radio'
                         },
@@ -207,6 +211,10 @@ module.exports = {
                             ]
                         },
                         {
+                            block: 'demo-marked',
+                            name: 'ol'
+                        },
+                        {
                             block: 'h4',
                             content: 'Ненумированный'
                         },
@@ -230,10 +238,6 @@ module.exports = {
                                     content: 'пункт списка'
                                 }
                             ]
-                        },
-                        {
-                            block: 'h3',
-                            content: 'marked'
                         },
                         {
                             block: 'demo-marked',
