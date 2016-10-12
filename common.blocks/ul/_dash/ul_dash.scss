@@ -1,0 +1,10 @@
+.ul_dash {
+  list-style: none;
+  li {
+    &:before {
+      content:  "—";
+      position: relative;
+      left:     -7px;
+    }
+  }
+}

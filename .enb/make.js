@@ -60,7 +60,7 @@ module.exports = function (config) {
 
     config.nodes('*.bundles/*', function (nodeConfig) {
         var isMergedNode = path.basename(nodeConfig.getPath()) === mergedBundleName;
-
+        
         isMergedNode || nodeConfig.addTechs([
             [techs.fileProvider, {target: '?.bemjson.js'}],
             [enbBemTechs.bemjsonToBemdecl]
@@ -150,16 +150,16 @@ module.exports = function (config) {
         isMergedNode || nodeConfig.addTargets(['?.b2.html', '?.html']);
     });
     
-    // config.includeConfig('enb-bem-examples'); // Подключаем модуль `enb-bem-examples`.
-    //
-    // var examples = config.module('enb-bem-examples') // Создаём конфигуратор сетов
-    //     .createConfigurator('examples');             //  в рамках `examples`-таска.
-    //
-    // examples.configure({
-    //     destPath: 'desktop.examples',
-    //     levels: ['common.blocks'],
-    //     inlineBemjson: false
-    // });
+    config.includeConfig('enb-bem-examples'); // Подключаем модуль `enb-bem-examples`.
+
+    var examples = config.module('enb-bem-examples') // Создаём конфигуратор сетов
+        .createConfigurator('examples');             //  в рамках `examples`-таска.
+
+    examples.configure({
+        destPath: 'desktop.examples',
+        levels: ['common.blocks'],
+        inlineBemjson: false
+    });
 
 };
 

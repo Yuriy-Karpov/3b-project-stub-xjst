@@ -1,0 +1,10 @@
+.star-rating_size {
+  &_lg {
+    .star-rating__wrap {
+      font-size: 36px;
+    }
+    .star-rating__icon {
+      padding-left: 4px;
+    }
+  }
+}

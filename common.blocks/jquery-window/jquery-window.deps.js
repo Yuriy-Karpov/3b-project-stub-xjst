@@ -1,7 +1,7 @@
 [
     ({
         mustDeps: [
-   
+            {block: 'jquery'}
         ]
     }),
     ({

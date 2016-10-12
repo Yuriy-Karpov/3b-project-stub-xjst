@@ -1,0 +1,8 @@
+.star-rating_disabled {
+  .star-rating__input:checked ~ .star-rating__icon {
+    color: $brand-primary;
+  }
+  .star-rating__icon {
+    cursor: auto;
+  }
+}

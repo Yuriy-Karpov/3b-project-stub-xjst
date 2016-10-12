@@ -1,6 +1,7 @@
 ({
     mustDeps: [
-        {block: 'cart-control', elem: ['minus', 'plus', 'input']},
-        {block: 'cart-control', mod: 'wait'}
+        {elem: ['button', 'input']},
+        {block: 'cart-control', mod: 'wait'},
+        {elem: 'button', mods: ['minus', 'plus']}
     ]
 })

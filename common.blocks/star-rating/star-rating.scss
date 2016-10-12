@@ -1,0 +1,13 @@
+.star-rating{
+  font-size: 0;
+  &:not(.star-rating_disabled) {
+    .star-rating__icon:hover,
+    .star-rating__icon:hover ~ .star-rating__icon,
+    .star-rating__input:checked ~ .star-rating__icon {
+      color: $brand-primary;
+      @media print {
+        display: block;
+      }
+    }
+  }
+}

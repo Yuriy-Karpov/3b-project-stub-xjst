@@ -1,4 +1,4 @@
-.cart-control__minus {
+.cart-control__button {
   width: 26px;
   height: 25px;
   display: inline-block;
@@ -7,9 +7,9 @@
   text-align: center;
   line-height: 24px;
   border: 1px solid #d4d4d4;
-  float: left;
   &:focus,
   &:hover {
     text-decoration: none;
+    outline: none;
   }
 }

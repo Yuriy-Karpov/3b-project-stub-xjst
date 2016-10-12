@@ -1,79 +1,281 @@
 module.exports = {
-    block : 'page',
-    title : 'Title of the page',
-    head : [
-        { elem : 'meta', attrs : { name : 'description', content : '' } },
-        { elem : 'meta', attrs : { name : 'viewport', content : 'width=device-width, initial-scale=1' } },
-        { elem : 'css', url : '../_merged/_merged.css' },
+    block: 'page',
+    title: 'Demo',
+    head: [
+        {elem: 'meta', attrs: {name: 'description', content: ''}},
+        {elem: 'meta', attrs: {name: 'viewport', content: 'width=device-width, initial-scale=1'}},
+        {elem: 'css', url: '../_merged/_merged.css'},
     ],
-    scripts: [{ elem : 'js', url : '../_merged/_merged.min.js' }],
-    content : [
-        {
-            block : 'header',
-            content : [
-              
-            ]
-        },
+    scripts: [{elem: 'js', url: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'}],
+    scripts: [{elem: 'js', url: '../_merged/_merged.min.js'}],
+    content: [
         {
             block: 'jquery-window'
         },
         {
-            block : 'container',
-            content : [
+            block: 'demo-header',
+            content: [
                 {
-                    block: 'dev',
-                    mods: {color: 'green'},
-                    js: true,
-                    content: 'demo dev'
-                },
-                {
-                    block: 'btn',
-                    content: 'кнопка'
-                },
-                {
-                    block: 'checkbox',
-                    name: 'newcheckbox',
-                    content: 'checkbox'
-                },
-                {
-                    block: 'checkbox',
-                    mods: {custom: true},
-                    content: 'custom checkbox'
-                },
-                {
-                    block: 'img',
-                    url: 'https://pbs.twimg.com/profile_images/3563995166/d0ee78b79b5d806a31c757126e7afe65.png'
-                },
-                {
-                    block: 'img',
-                    mods: {lazyload:true},
-                    url: 'https://pbs.twimg.com/profile_images/3563995166/d0ee78b79b5d806a31c757126e7afe65.png'
-                },
-                {
-                    block: 'alert',
-                    content: 'alert'
-                },
-                {
-                    block: 'breadcrumb',
+                    block: 'container',
                     content: [
                         {
-                            elem: 'active',
-                            content: 'main'
-                        },
-                        {
-                            elem: 'item',
-                            content: 'breadcrumb'
+                            block: 'h1',
+                            content: '3b-project-stub-xjst'
                         }
                     ]
-                },
-                {
-                    block: 'cart-control'
                 }
             ]
         },
         {
-            block : 'footer',
-            content : [
+            block: 'container',
+            content: [
+                {
+                    block: 'demo-line',
+                    content: [
+                        {
+                            block: 'h2',
+                            content: 'Самогенерируемая рыба'
+                        },
+                        {
+                            block: 'fish',
+                        },
+                    ]
+                },
+                {
+                    block: 'demo-line',
+                    content: [
+                        {
+                            block: 'h2',
+                            content: 'Button'
+                        },
+                        {
+                            block: 'btn',
+                            content: 'кнопка'
+                        },
+
+                    ]
+                },
+                {
+                    block: 'demo-line',
+                    content: [
+                        {
+                            block: 'h2',
+                            content: 'Input control'
+                        },
+                        {
+                            block: 'checkbox',
+                            name: 'newcheckbox',
+                            content: 'checkbox'
+                        },
+                        {
+                            block: 'checkbox',
+                            mods: {custom: true},
+                            content: 'custom checkbox'
+                        },
+                        {
+                            block: 'radio',
+                            content: 'radio'
+                        },
+                        {
+                            block: 'radio',
+                            mods: {custom: true},
+                            content: 'custom checkbox'
+                        },
+                    ]
+                },
+                {
+                    block: 'demo-line',
+                    content: [
+                        {
+                            block: 'h2',
+                            content: 'Image'
+                        },
+                        {
+                            block: 'img',
+                            url: 'https://pbs.twimg.com/profile_images/3563995166/d0ee78b79b5d806a31c757126e7afe65.png'
+                        },
+                        {
+                            block: 'img',
+                            mods: {lazyload: true},
+                            url: 'https://pbs.twimg.com/profile_images/3563995166/d0ee78b79b5d806a31c757126e7afe65.png'
+                        },
+                    ]
+                },
+                {
+                    block: 'demo-line',
+                    content: [
+                        {
+                            block: 'h2',
+                            content: 'Alerts'
+                        },
+                        {
+                            block: 'alert',
+                            content: 'alert'
+                        },
+                    ]
+                },
+                {
+                    block: 'demo-line',
+                    content: [
+                        {
+                            block: 'h2',
+                            content: 'Breadcrumb'
+                        },
+                        {
+                            block: 'breadcrumb',
+                            content: [
+                                {
+                                    elem: 'active',
+                                    content: 'main'
+                                },
+                                {
+                                    elem: 'item',
+                                    content: 'breadcrumb'
+                                }
+                            ]
+                        },
+                    ]
+                },
+                {
+                    block: 'demo-line',
+                    content: [
+                        {
+                            block: 'h2',
+                            content: 'Cart-control'
+                        },
+                        {
+                            block: 'cart-control',
+                            buttonMinus: '-',
+                            buttonPlus: '+'
+                        },
+                        {
+                            block: 'cart-control',
+                            min: 1,
+                            max: 100,
+                            value: 1
+                        },
+                    ]
+                },
+                {
+                    block: 'demo-line',
+                    content: [
+                        {
+                            block: 'h2',
+                            content: 'Списки'
+                        },
+                        {
+                            block: 'h4',
+                            content: 'Нумированный'
+                        },
+                        {
+                            block: 'ol',
+                            content: [
+                                {
+                                    elem: 'li',
+                                    content: 'item'
+                                },
+                                {
+                                    elem: 'li',
+                                    content: 'item'
+                                },
+                                {
+                                    elem: 'li',
+                                    content: [
+                                        {
+                                            block: 'ol',
+                                            content: [
+                                                {
+                                                    elem: 'li',
+                                                    content: 'item'
+                                                },
+                                                {
+                                                    elem: 'li',
+                                                    content: 'item'
+                                                },
+
+                                            ]
+                                        }
+                                    ]
+                                },
+                                {
+                                    elem: 'li',
+                                    content: 'item'
+                                }
+                            ]
+                        },
+                        {
+                            block: 'h4',
+                            content: 'Ненумированный'
+                        },
+                        {
+                            block: 'ul',
+                            content: [
+                                {
+                                    elem: 'li',
+                                    content: 'item'
+                                },
+                                {
+                                    elem: 'li',
+                                    content: 'item'
+                                },
+                                {
+                                    elem: 'li',
+                                    content: 'item'
+                                },
+                                {
+                                    elem: 'li',
+                                    content: 'item'
+                                }
+                            ]
+                        },
+                        {
+                            block: 'h4',
+                            content: 'Список не стилизованный'
+                        },
+                        {
+                            block: 'ul',
+                            mods: {unstyled: true},
+                            content: [
+                                'item',
+                                'item',
+                                'item',
+                            ]
+                        }
+                    ]
+                },
+                {
+                    block: 'demo-line',
+                    content: [
+                        {
+                            block: 'h2',
+                            content: 'Form'
+                        },
+                        {
+                            block: 'h4',
+                            content: 'Input'
+                        },
+                        {
+                            block: 'input',
+                            mods: {control: true},
+                            placeholder: 'placeholder input'
+                        },
+                        {
+                            block: 'h4',
+                            content: 'Textarea'
+                        },
+                        {
+                            block: 'textarea',
+                            placeholder: 'placeholder textarea'
+                        },
+                        
+                    ]
+                }
+
+            ]
+        },
+        {
+            block: 'footer',
+            content: [
 
             ]
         }
