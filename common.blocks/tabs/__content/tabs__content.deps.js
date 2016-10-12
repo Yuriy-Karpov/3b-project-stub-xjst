@@ -1,0 +1,8 @@
+({
+    mustDeps: [
+        {block: 'page'}
+    ],
+    shouldDeps: [
+        {}
+    ]
+})

@@ -61,7 +61,8 @@ block('page')(
                             {block: 'ua', elem: 'modern'},
                             ctx.head,
                             ctx.styles,
-                            ctx.favicon ? {elem: 'favicon', url: ctx.favicon} : favicons
+                            ctx.favicon ? {elem: 'favicon', url: ctx.favicon} : favicons,
+                            {elem: 'js', url: '../../libs/jquery/dist/jquery.min.js'},
                         ]
                     },
                     '<!--noindex-->',

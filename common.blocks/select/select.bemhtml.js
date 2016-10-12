@@ -1,13 +1,14 @@
-block('ol')(
-    tag()('ol'),
+block('select')(
+    tag()('select'),
     match(function() {
         return typeof this.ctx.content[0] === 'string' })(
         content()(function () {
             var content = this.ctx.content.map(function (item) {
                 return [
                     {
-                        elem: 'li',
-                        tag: 'li',
+                        elem: 'option',
+                        bem: false,
+                        tag: 'option',
                         content: item
                     }
                 ]

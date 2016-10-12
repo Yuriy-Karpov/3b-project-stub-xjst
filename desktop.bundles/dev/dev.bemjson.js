@@ -6,7 +6,6 @@ module.exports = {
         {elem: 'meta', attrs: {name: 'viewport', content: 'width=device-width, initial-scale=1'}},
         {elem: 'css', url: '../_merged/_merged.css'},
     ],
-    scripts: [{elem: 'js', url: 'https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js'}],
     scripts: [{elem: 'js', url: '../_merged/_merged.min.js'}],
     content: [
         {
@@ -260,14 +259,60 @@ module.exports = {
                             placeholder: 'placeholder input'
                         },
                         {
+                            block: 'h5',
+                            content: 'Input size lg'
+                        },
+                        {
+                            block: 'input',
+                            mods: {control: true, size: 'lg'},
+                            placeholder: 'placeholder input'
+                        },
+                        {
+                            block: 'h5',
+                            content: 'Input size sm'
+                        },
+                        {
+                            block: 'input',
+                            mods: {control: true, size: 'sm'},
+                            placeholder: 'placeholder input'
+                        },
+                        {
                             block: 'h4',
                             content: 'Textarea'
                         },
                         {
                             block: 'textarea',
+                            rows: 4,
                             placeholder: 'placeholder textarea'
                         },
-                        
+                        {
+                            block: 'h4',
+                            content: 'Select'
+                        },
+                        {
+                            block: 'select',
+                            mods: {control: true},
+                            content: [
+                                'option 1',
+                                'option 2',
+                                'option 3',
+                                'option 4'
+                            ]
+                        },
+                        {
+                            block: 'h5',
+                            content: 'Select multiple'
+                        },
+                        {
+                            block: 'select',
+                            mods: {control: true, multiple: true},
+                            content: [
+                                'option 1',
+                                'option 2',
+                                'option 3',
+                                'option 4'
+                            ]
+                        },
                     ]
                 }
 
