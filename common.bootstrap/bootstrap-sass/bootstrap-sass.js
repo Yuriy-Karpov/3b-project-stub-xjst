@@ -1,0 +1,1 @@
+/*borschik:include:../../libs/bootstrap/dist/js/bootstrap.min.js */;

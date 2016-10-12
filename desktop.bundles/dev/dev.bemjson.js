@@ -98,6 +98,10 @@ module.exports = {
                             mods: {lazyload: true},
                             url: 'https://pbs.twimg.com/profile_images/3563995166/d0ee78b79b5d806a31c757126e7afe65.png'
                         },
+                        {
+                            block: 'demo-marked',
+                            name: 'img'
+                        },
                     ]
                 },
                 {
@@ -171,11 +175,11 @@ module.exports = {
                             content: [
                                 {
                                     elem: 'li',
-                                    content: 'item'
+                                    content: 'пункт списка'
                                 },
                                 {
                                     elem: 'li',
-                                    content: 'item'
+                                    content: 'пункт списка'
                                 },
                                 {
                                     elem: 'li',
@@ -185,11 +189,11 @@ module.exports = {
                                             content: [
                                                 {
                                                     elem: 'li',
-                                                    content: 'item'
+                                                    content: 'пункт списка'
                                                 },
                                                 {
                                                     elem: 'li',
-                                                    content: 'item'
+                                                    content: 'пункт списка'
                                                 },
 
                                             ]
@@ -198,7 +202,7 @@ module.exports = {
                                 },
                                 {
                                     elem: 'li',
-                                    content: 'item'
+                                    content: 'пункт списка'
                                 }
                             ]
                         },
@@ -211,21 +215,29 @@ module.exports = {
                             content: [
                                 {
                                     elem: 'li',
-                                    content: 'item'
+                                    content: 'пункт списка'
                                 },
                                 {
                                     elem: 'li',
-                                    content: 'item'
+                                    content: 'пункт списка'
                                 },
                                 {
                                     elem: 'li',
-                                    content: 'item'
+                                    content: 'пункт списка'
                                 },
                                 {
                                     elem: 'li',
-                                    content: 'item'
+                                    content: 'пункт списка'
                                 }
                             ]
+                        },
+                        {
+                            block: 'h3',
+                            content: 'marked'
+                        },
+                        {
+                            block: 'demo-marked',
+                            name: 'ul'
                         },
                         {
                             block: 'h4',
@@ -235,9 +247,9 @@ module.exports = {
                             block: 'ul',
                             mods: {unstyled: true},
                             content: [
-                                'item',
-                                'item',
-                                'item',
+                                'пункт списка',
+                                'пункт списка',
+                                'пункт списка',
                             ]
                         }
                     ]

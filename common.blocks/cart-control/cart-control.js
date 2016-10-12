@@ -4,6 +4,7 @@ modules.define('cart-control', ['i-bem__dom', 'jquery'], function (provide, BEMD
                 'js': {
                     'inited': function () {
                         var _this = this;
+                        console.log(this);
                         this.elem('input').change(function () {
                             _this.changeFilter();
                             console.log('change test');

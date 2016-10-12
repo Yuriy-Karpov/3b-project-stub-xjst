@@ -1,0 +1,75 @@
+<h1 id="ul">ul</h1>
+<p>Блок реализует ненумерованный список, тег ul <a href="http://getbootstrap.com/css/#type-lists">http://getbootstrap.com/css/#type-lists</a></p>
+<h2 id="re-">re Обзор</h2>
+<h3 id="-">Специализированные поля блока</h3>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>отсутствуют</td>
+<td>отсутствуют</td>
+<td>отсутствуют</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">Модификаторы блока</h3>
+<table>
+<thead>
+<tr>
+<th>Модификатор</th>
+<th>Допустимые значения</th>
+<th>Способы использования</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>unstyled</td>
+<td>true</td>
+<td>BEMJSON</td>
+<td>list-unstyled, убирает стилизацию ul</td>
+</tr>
+<tr>
+<td>dash</td>
+<td>true</td>
+<td>BEMJSON</td>
+<td>тире вместо точки</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">Пример:</h3>
+<p>Можно передать массив, где каждый элемент массива будет преобразован в li</p>
+<pre><code>{
+   block: &#39;ul&#39;,
+   content: [
+       &#39;item&#39;,
+       &#39;item&#39;,
+       &#39;item&#39;,
+       &#39;item&#39;
+   ]
+}
+</code></pre><p>а можно и элементы как обычно </p>
+<pre><code>{
+   block: &#39;ul&#39;,
+   content: [
+        {
+            elem: &#39;li&#39;,
+            content: &#39;item&#39;
+        },
+        {
+            elem: &#39;li&#39;,
+            content: &#39;item&#39;
+        }
+   ]
+}
+</code></pre><h3 id="-">Публичные технологии блока</h3>
+<p>Блок реализован в технологиях:</p>
+<ul>
+<li><code>bemhtml.js</code></li>
+</ul>

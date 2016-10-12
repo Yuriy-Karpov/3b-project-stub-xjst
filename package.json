@@ -33,10 +33,13 @@
     "gulp-concat": "^2.6.0",
     "gulp-csso": "^2.0.0",
     "gulp-debug": "^2.1.2",
+    "gulp-marked": "^1.0.0",
     "gulp-postcss": "^6.1.1",
     "gulp-stylus": "^2.5.0",
     "gulp-uglify": "^2.0.0",
     "js-beautify": "*",
+    "lodash": "^4.16.4",
+    "marked": "^0.3.6",
     "merge2": "^1.0.2",
     "node-sass": "*",
     "object-hash": "*",
@@ -53,7 +56,7 @@
     "postinstall": "npm run deps",
     "deps": "bower i --allow-root",
     "make": "./node_modules/.bin/enb make",
-    "docs": "./node_modules/.bin/enb make examples"
+    "docs": "node ./node_modules/gulp/bin/gulp.js convert"
   },
   "private": true
 }

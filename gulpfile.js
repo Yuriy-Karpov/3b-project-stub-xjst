@@ -14,15 +14,17 @@ const stylus = require('gulp-stylus');
 const uglify = require('gulp-uglify');
 const bemhtml = require('gulp-bem-xjst').bemhtml;
 const toHtml = require('gulp-bem-xjst').toHtml;
+var marked = require('gulp-marked');
+// var marked = require('marked');
 
 const builder = Builder({
     levels: [
         'libs/bem-core/common.blocks',
         'libs/bem-core/desktop.blocks',
-        'libs/bem-components/common.blocks',
-        'libs/bem-components/desktop.blocks',
-        'libs/bem-components/design/common.blocks',
-        'libs/bem-components/design/desktop.blocks',
+        // 'libs/bem-components/common.blocks',
+        // 'libs/bem-components/desktop.blocks',
+        // 'libs/bem-components/design/common.blocks',
+        // 'libs/bem-components/design/desktop.blocks',
         'common.blocks',
         'desktop.blocks'
     ],
@@ -79,3 +81,18 @@ gulp.task('build', () => {
 });
 
 gulp.task('default', gulp.series('build'));
+
+gulp.task('convert', function() {
+    gulp.src('common.blocks/*/*.md')
+        .pipe(marked({
+            // renderer: new marked.Renderer(),
+            gfm: true,
+            tables: true,
+            breaks: false,
+            pedantic: false,
+            sanitize: true,
+            smartLists: true,
+            smartypants: false
+        }))
+        .pipe(gulp.dest('html.docs/'))
+});
