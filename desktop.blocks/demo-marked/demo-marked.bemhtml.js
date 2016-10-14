@@ -1,7 +1,13 @@
 block('demo-marked')(
     content()(function () {
         var fs = require('fs');
-        var marked = fs.readFileSync('./html.docs/' + this.ctx.name + '/' + this.ctx.name + '.html', 'utf8');
+        var marked;
+        try {
+            marked = fs.readFileSync('./html.docs/' + this.ctx.name + '/' + this.ctx.name + '.html', 'utf8');
+            marked = marked.replace(/id="-"/g, '');
+        } catch (e) {
+            marked = 'Для этого блока не создали *.md документации'
+        }
         var id = 'modal-' + this.ctx.name;
         marked = marked.toString();
         return [

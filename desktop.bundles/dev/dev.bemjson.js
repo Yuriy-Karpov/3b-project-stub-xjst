@@ -51,7 +51,10 @@ module.exports = {
                             block: 'btn',
                             content: 'кнопка'
                         },
-
+                        {
+                            block: 'demo-marked',
+                            name: 'btn'
+                        },
                     ]
                 },
                 {
@@ -83,6 +86,10 @@ module.exports = {
                             block: 'radio',
                             mods: {custom: true},
                             content: 'custom checkbox'
+                        },
+                        {
+                            block: 'demo-marked',
+                            name: 'radio'
                         },
                     ]
                 },
@@ -118,6 +125,10 @@ module.exports = {
                         {
                             block: 'alert',
                             content: 'alert'
+                        },
+                        {
+                            block: 'demo-marked',
+                            name: 'alert'
                         },
                     ]
                 },

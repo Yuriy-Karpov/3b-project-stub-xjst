@@ -8,9 +8,9 @@
 
 | Поле | Тип | Описание |
 | ---- | --- | -------- |
-| <a href="#checkboxname">name</a> | <code>String</code> | Уникальное имя чекбокса, по умолчанию checkbox|
-| <a href="#checkboxval">val</a> | <code>String</code>, <code>Number</code> | Значение чекбокса, которое будет отправлено на сервер, если он выбран. |
-| content | <code>String</code> | Текст подписи к чекбоксу. |
+| name | String| Уникальное имя чекбокса, по умолчанию checkbox|
+| val | String, Number | Значение чекбокса, которое будет отправлено на сервер, если он выбран. |
+| content | String | Текст подписи к чекбоксу. |
 
 
 ### Модификаторы блока
@@ -21,7 +21,14 @@
 | disabled | true | BEMJSON | Неактивное состояние. |
 | custom | true | BEMJSON | Включение кастомного оформления (реализовано на css) |
 
-
+### Пример
+```
+{
+    block: 'checkbox',
+    mods: {custom: true},
+    content: 'custom checkbox'
+}
+```
 
 Блок реализован в технологиях:
 

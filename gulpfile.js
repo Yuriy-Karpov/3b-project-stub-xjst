@@ -92,7 +92,7 @@ gulp.task('convert', function() {
             pedantic: false,
             sanitize: true,
             smartLists: true,
-            smartypants: false
+            smartypants: true
         }))
         .pipe(gulp.dest('html.docs/'))
 });

@@ -36,7 +36,7 @@ ivAPI.fish = function ( dict, shitLevel, rus ) {
             parseDict()
             if ( shitLevel > 0 )
                 makeShitty()
-            console.log( mixShit( '1', '2' ) )
+            // console.log( mixShit( '1', '2' ) )
         },
         mixShit = function ( good, bad ) {
             var shit = Math.random() < shitLevel
@@ -82,7 +82,6 @@ ivAPI.fish = function ( dict, shitLevel, rus ) {
 
 
 ivAPI.replaceObj.add({
-    "btn-default": "btn-info",
     "alert-info": "alert-danger"
 })
 

@@ -1,0 +1,17 @@
+.demo-marked__readme {
+  table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+    border: 1px solid rgb(221, 221, 221);
+  }
+  th {
+    font-weight: bold;
+  }
+  th, td {
+    border: 1px solid rgb(221, 221, 221);
+    line-height: 1.42857;
+    vertical-align: top;
+    padding: 8px;
+  }
+}

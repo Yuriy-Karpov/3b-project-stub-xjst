@@ -2,7 +2,7 @@ var enb = require('enb'),
     beautifyHtml = null,
     bootLint = null,
     vowFs = require('enb/lib/fs/async-fs'),
-    replaceObj = require('../../replaceObj'),
+    replaceObj = require('../../config'),
     buildFlow = require('enb/lib/build-flow');
 
 module.exports = buildFlow.create()
@@ -23,7 +23,7 @@ module.exports = buildFlow.create()
                     // если есть вероятность, что на странице не будет заменяемых классов, 
                     // тогда раскомментируем проверку
                     // if (!html.match(/key/g)) {
-                    html = html.replace(new RegExp(key, 'g'), replaceObj[key])
+                    html = html.replace(new RegExp('(^|[\\s\\"\\\'])(' + key +')($|[\\s\\"\\\'])', 'g'), '$1' + replaceObj[key] + '$3')
                     // }
                 }
                 var beauty = beautifyHtml(html, {})

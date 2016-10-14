@@ -28,10 +28,12 @@ var fs = require('fs'),
     levels = [
         {path: 'libs/bem-core/common.blocks', check: false},
         {path: 'libs/bem-core/desktop.blocks', check: false},
-        // {path: 'libs/bem-components/common.blocks', check: false},
-        // {path: 'libs/bem-components/desktop.blocks', check: false},
-        // {path: 'libs/bem-components/design/common.blocks', check: false},
-        // {path: 'libs/bem-components/design/desktop.blocks', check: false},
+        'blocks-00.supported',
+        'blocks-00.unsupported',
+        'blocks-01.common',
+        'blocks-02.components',
+        'blocks-03.project',
+        
         'common.bootstrap',
         'common.blocks',
         'desktop.blocks'
@@ -150,16 +152,6 @@ module.exports = function (config) {
         isMergedNode || nodeConfig.addTargets(['?.b2.html', '?.html']);
     });
     
-    config.includeConfig('enb-bem-examples'); // Подключаем модуль `enb-bem-examples`.
-
-    var examples = config.module('enb-bem-examples') // Создаём конфигуратор сетов
-        .createConfigurator('examples');             //  в рамках `examples`-таска.
-
-    examples.configure({
-        destPath: 'desktop.examples',
-        levels: ['common.blocks'],
-        inlineBemjson: false
-    });
 
 };
 

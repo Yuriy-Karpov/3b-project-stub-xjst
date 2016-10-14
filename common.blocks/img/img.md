@@ -28,6 +28,15 @@
 * `bh.js`
 * `js`
 
+### Пример
+```
+{
+    block: 'img',
+    mods: {lazyload: true},
+    url: 'https://pbs.twimg.com/profile_images/3563995166/d0ee78b79b5d806a31c757126e7afe65.png'
+}
+```
+
 ## Подробности
 
 Модификатор lazyload не работает в IE8

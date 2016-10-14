@@ -1,3 +1,6 @@
+ivAPI.replaceObj.add({
+  
+})
 block('btn')(
   mix()(function () {
       var mods = this.ctx.mods;

@@ -1,0 +1,10 @@
+[
+    ({
+        mustDeps: []
+    }),
+    ({
+        shouldDeps: [
+            {elem: 'readme'}
+        ]
+    })
+]

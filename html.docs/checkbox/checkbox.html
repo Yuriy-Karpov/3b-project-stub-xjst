@@ -13,18 +13,18 @@
 </thead>
 <tbody>
 <tr>
-<td>&lt;a href=&quot;#checkboxname&quot;&gt;name&lt;/a&gt;</td>
-<td>&lt;code&gt;String&lt;/code&gt;</td>
+<td>name</td>
+<td>String</td>
 <td>Уникальное имя чекбокса, по умолчанию checkbox</td>
 </tr>
 <tr>
-<td>&lt;a href=&quot;#checkboxval&quot;&gt;val&lt;/a&gt;</td>
-<td>&lt;code&gt;String&lt;/code&gt;, &lt;code&gt;Number&lt;/code&gt;</td>
+<td>val</td>
+<td>String, Number</td>
 <td>Значение чекбокса, которое будет отправлено на сервер, если он выбран.</td>
 </tr>
 <tr>
 <td>content</td>
-<td>&lt;code&gt;String&lt;/code&gt;</td>
+<td>String</td>
 <td>Текст подписи к чекбоксу.</td>
 </tr>
 </tbody>
@@ -60,7 +60,13 @@
 </tr>
 </tbody>
 </table>
-<p>Блок реализован в технологиях:</p>
+<h3 id="-">Пример</h3>
+<pre><code>{
+    block: &#39;checkbox&#39;,
+    mods: {custom: true},
+    content: &#39;custom checkbox&#39;
+}
+</code></pre><p>Блок реализован в технологиях:</p>
 <ul>
 <li><code>bemhtml.js</code></li>
 <li><code>bh.js</code></li>
