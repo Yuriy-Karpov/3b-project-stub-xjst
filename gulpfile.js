@@ -83,7 +83,7 @@ gulp.task('build', () => {
 gulp.task('default', gulp.series('build'));
 
 gulp.task('convert', function() {
-    gulp.src('common.blocks/*/*.md')
+    gulp.src('blocks-01.common/*/*.md')
         .pipe(marked({
             // renderer: new marked.Renderer(),
             gfm: true,

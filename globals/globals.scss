@@ -68,5 +68,5 @@ $pagination-active-border: transparent;
 $pagination-hover-border: transparent;
 
 //Переопределение переменных Bootstrap должно производиться до этой строчки
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables";
-@import "../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/mixins";
+@import "../libs/bootstrap-sass/assets/stylesheets/bootstrap/variables";
+@import "../libs/bootstrap-sass/assets/stylesheets/bootstrap/mixins";

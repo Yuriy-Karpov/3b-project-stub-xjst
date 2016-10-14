@@ -1,0 +1,129 @@
+<h1 id="row">row</h1>
+<h2 id="-">Обзор</h2>
+<p>Реализация сетки bootstrap.
+Комплексный блок, т.к. col-<em>-</em> используется вместе с row, col является элеменом 
+__!Внимание, используется btReplace</p>
+<h3 id="-">Специализированные поля блока</h3>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>отсутствует</td>
+<td>отсутствует</td>
+<td>отсутствует</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">Модификаторы блока</h3>
+<h5 id="columns-sm-css">columns-sm устранение бага (ступеньки) построение колонок с разной высотой, реализованно на css</h5>
+<table>
+<thead>
+<tr>
+<th>Модификатор</th>
+<th>Допустимые значения</th>
+<th>Способы использования</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>columns-xs</td>
+<td>number</td>
+<td>BEMJSON</td>
+<td>xs - разрешение на котором работает, number - число колонок</td>
+</tr>
+<tr>
+<td>columns-sm</td>
+<td>number</td>
+<td>BEMJSON</td>
+<td>sm - разрешение на котором работает, number - число колонок</td>
+</tr>
+<tr>
+<td>columns-md</td>
+<td>number</td>
+<td>BEMJSON</td>
+<td>md - разрешение на котором работает, number - число колонок</td>
+</tr>
+<tr>
+<td>columns-lg</td>
+<td>number</td>
+<td>BEMJSON</td>
+<td>lg - разрешение на котором работает, number - число колонок</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-col-">Модификаторы элемента <code>col</code></h3>
+<p><strong>!Внимание в элементе col должен быть по крайней мере один модификатор ширины</strong></p>
+<table>
+<thead>
+<tr>
+<th>Модификатор</th>
+<th>Допустимые значения</th>
+<th>Способы использования</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>xs, sm, md, lg</td>
+<td>number* (1-12)</td>
+<td>BEMJSON</td>
+<td>ширина колонки где xs\sm\md\lg - разрешение на котором работает, number - ширина колоноки <a href="http://getbootstrap.com/css/#grid-example-mixed">http://getbootstrap.com/css/#grid-example-mixed</a></td>
+</tr>
+<tr>
+<td>xs-offset, sm-offset, md-offset, lg-offset</td>
+<td>number* (1-12)</td>
+<td>BEMJSON</td>
+<td>отступ для колонки, xs\sm\md\lg  - разрешение на котором работает, <a href="http://getbootstrap.com/css/#grid-offsetting">http://getbootstrap.com/css/#grid-offsetting</a></td>
+</tr>
+<tr>
+<td>xs-push, sm-push, md-push, lg-push</td>
+<td>number* (1-12)</td>
+<td>BEMJSON</td>
+<td>реализует изменение порядка колонок, xs\sm\md\lg  - разрешение на котором работает, <a href="http://getbootstrap.com/css/#grid-column-ordering">http://getbootstrap.com/css/#grid-column-ordering</a></td>
+</tr>
+<tr>
+<td>xs-pull, sm-pull, md-pull, lg-pull</td>
+<td>number* (1-12)</td>
+<td>BEMJSON</td>
+<td>реализует изменение порядка колонок, xs\sm\md\lg  - разрешение на котором работает, <a href="http://getbootstrap.com/css/#grid-column-ordering">http://getbootstrap.com/css/#grid-column-ordering</a></td>
+</tr>
+</tbody>
+</table>
+<p><strong>number* по умолчанию 12 колонок (default 1-12) меняется в сетке бутстрапа</strong></p>
+<h3 id="-">Пример</h3>
+<pre><code>{
+    block: &#39;row&#39;,
+    mods: {&#39;columns-sm&#39;: &#39;3&#39;}, // 3 колонки 
+    content: [
+        {
+            elem: &#39;col&#39;,
+            mods: {sm: 4},
+            content: &#39;контент первой колонки&#39;
+        },
+        {
+            elem: &#39;col&#39;,
+            mods: {sm: 4},
+            content: &#39;контент второй колонки&#39;
+        },
+        {
+            elem: &#39;col&#39;,
+            mods: {sm: 4},
+            content: &#39;контент третий колонки&#39;
+        }
+    ]
+}
+</code></pre><p>Блок реализован в технологиях:</p>
+<ul>
+<li><code>btReplace</code></li>
+<li><code>bemhtml.js</code></li>
+<li><code>bh.js</code></li>
+<li><code>css</code></li>
+<li><code>js</code></li>
+</ul>

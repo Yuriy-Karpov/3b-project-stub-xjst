@@ -1,0 +1,19 @@
+<h2 id="-btn">Блок btn</h2>
+<p><code>{</code>
+    <code>block: &#39;btn&#39;,</code>
+    <code>type: &#39;link&#39;,</code> // <em>link или button (по умолчанию button, если ничего не передать)</em>
+    <code>url: &#39;https://ru.bem.info&#39;</code> // _(по умолчанию ‘#’, если ничего не передать)/
+    <code>content: &#39;Подписаться&#39;</code>
+<code>}</code></p>
+<h3 id="-">результат</h3>
+<p><code>&lt;a class=&quot;btn btn-default&quot; href=&quot;#&quot;&gt;Подписаться&lt;/a&gt;</code></p>
+<h2 id="-">Модификаторы</h2>
+<h5 id="-btn-bem-size-bem-">блок btn подчиняется правилам bem пока нет модификатора size, который отменяет правила bem, что бы не было мусорных класов</h5>
+<p><code>{</code>
+    <code>block: &#39;btn&#39;,</code>
+    <code>type: &#39;link&#39;,</code> // link или button (по умолчанию link)
+    <code>mods: {size: &#39;xs&#39;},</code>
+    <code>content: &#39;Подписаться&#39;</code> // текст кнопки
+<code>}</code></p>
+<h3 id="-">результат</h3>
+<p><code>&lt;a class=&quot;btn btn-default btn-xs&quot; href=&quot;#&quot;&gt;Подписаться&lt;/a&gt;</code></p>

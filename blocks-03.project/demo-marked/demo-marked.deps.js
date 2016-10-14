@@ -4,7 +4,7 @@
     }),
     ({
         shouldDeps: [
-            {elem: 'readme'}
+            {elem: ['readme', 'readmore']}
         ]
     })
 ]

@@ -34,9 +34,9 @@ var fs = require('fs'),
         'blocks-02.components',
         'blocks-03.project',
         
-        'common.bootstrap',
-        'common.blocks',
-        'desktop.blocks'
+        // 'common.bootstrap',
+        // 'common.blocks',
+        // 'desktop.blocks'
     ];
 // TODO: responsive временно для разработке
 var responsive = true,
