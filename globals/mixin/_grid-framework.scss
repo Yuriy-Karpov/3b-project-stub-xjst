@@ -1,0 +1,23 @@
+@mixin col () {
+  float: left;
+  min-height: 1px;
+}
+
+@mixin clean-grid($index, $class) {
+  .row_clean-#{$class}_#{$index} {
+    > [class^="col-"] {
+      &:nth-child(n){
+        clear: initial;
+      }
+      &:nth-child(#{$index}n+1) {
+        clear: both;
+      }
+    }
+  }
+}
+@mixin loop-row-clean-grid($class) {
+  @for $i from 1 through $grid-columns {
+    @include clean-grid($i, $class);
+  }
+}
+
