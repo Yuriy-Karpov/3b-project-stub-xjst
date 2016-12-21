@@ -4,7 +4,7 @@
 }
 
 @mixin clean-grid($index, $class) {
-  .row_clean-#{$class}_#{$index} {
+  .row_columns-#{$class}_#{$index} {
     > [class^="col-"] {
       &:nth-child(n){
         clear: initial;

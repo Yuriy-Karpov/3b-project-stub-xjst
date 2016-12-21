@@ -1,0 +1,7 @@
+.list-unstyled,
+ul:not([class]),
+ol:not([class]){
+  li{
+    margin: 0.5em 0;
+  }
+}

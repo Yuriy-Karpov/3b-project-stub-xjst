@@ -1,0 +1,41 @@
+@import "../variables";
+h1, .h1{
+  @include font-size($type__h_1, 18px);
+}
+h2, .h2{
+  @include font-size($type__h_2, 18px);
+}
+h3, .h3{
+  @include font-size($type__h_3, 16px);
+}
+h4, .h4{
+  @include font-size($type__h_4, 16px);
+}
+h5, .h5{
+  @include font-size($type__h_5, 14px);
+}
+h6, .h6{
+  @include font-size($type__h_6, 14px);
+}
+
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  margin-top: $headings-margin-top;
+  margin-bottom: $headings-margin-bottom;
+  &:before{
+    font-size: inherit;
+    content: '';
+    display: block;
+    margin-bottom: $headings-before-margin-bottom;
+    height: 1px;
+  }
+  &:first-child{
+    margin-top: 0;
+    &:before{content: none}
+  }
+}
+h4, .h4, h5, .h5, h6, .h6 {
+  @media (min-width: $screen-sm-min) {
+    margin-bottom: $headings-margin-bottom-sm;
+  }
+}

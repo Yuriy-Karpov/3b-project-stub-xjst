@@ -1,0 +1,15 @@
+ul:not([class]){
+  list-style: none;
+  padding-left: 15px;
+  & &{ padding-left: 25px;}
+  li:before{
+    content: '';
+    width: 4px;
+    height: 4px;
+    margin-left: -15px;
+    margin-right: 11px;
+    display: inline-block;
+    background-color: $brand-danger;
+    vertical-align: middle;
+  }
+}

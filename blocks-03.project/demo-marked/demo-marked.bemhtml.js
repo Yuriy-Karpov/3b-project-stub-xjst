@@ -39,7 +39,15 @@ block('demo-marked')(
                                     {
                                         elem: 'body',
                                         mix: [{block: 'modal-body'}],
-                                        content: marked
+                                        content: [
+                                            marked,
+                                            {
+                                                elem: 'html',
+                                                mix: [{block: 'form-control'}],
+                                                tag: 'textarea',
+                                                content: this.ctx.content
+                                            }
+                                        ]
                                     }
                                 ]
                             }

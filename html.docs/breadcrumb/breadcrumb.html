@@ -1,0 +1,81 @@
+<h1 id="breadcrumb">Breadcrumb</h1>
+<p>Блок реализует тег select <a href="http://getbootstrap.com/components/#breadcrumbs">http://getbootstrap.com/components/#breadcrumbs</a></p>
+<h2 id="-">Обзор</h2>
+<p>Реализует хлебные крошки из <code>ol&gt;li&gt;a</code>, последний элемент должен быть active, он не имеет в себе ссылки,  <code>ol&gt;li</code>.
+Имеет в себе шаблон-контент по умолчанию, если ничего не передавать в content</p>
+<h3 id="-">Специализированные поля блока</h3>
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Тип</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>нету</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">Модификаторы блока</h3>
+<table>
+<thead>
+<tr>
+<th>Модификатор</th>
+<th>Допустимые значения</th>
+<th>Способы использования</th>
+<th>Описание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>нету</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="-">Пример:</h3>
+<p>Можно использовать компактный режим, передать массив, где каждый элемент массива будет преобразован в item (li с ссылкой внутри) и последний элемент массива в active (он не имеет ссылки)</p>
+<pre><code>{
+   block: &#39;breadcrumb&#39;,
+   content: [
+       &#39;string&#39;,
+       &#39;string&#39;,
+       &#39;string&#39;,
+       &#39;string&#39;
+   ]
+}
+</code></pre><p>а можно и как обычно передав элементы в content</p>
+<pre><code>{
+   block: &#39;breadcrumb&#39;,
+   content: [
+        {
+            elem: &#39;item&#39;,
+            content: &#39;string&#39;
+        },
+        {
+            elem: &#39;item&#39;,
+            content: &#39;string&#39;
+        },
+        {
+            elem: &#39;active&#39;,
+            content: &#39;string&#39;
+        },
+
+   ]
+}
+</code></pre><p>можно ничего не передавать в контент, будет воспроизведён контент по умолчанию</p>
+<pre><code>{
+   block: &#39;breadcrumb&#39;
+}
+</code></pre><h3 id="-">Публичные технологии блока</h3>
+<p>Блок реализован в технологиях:</p>
+<ul>
+<li><code>bemhtml.js</code></li>
+<li><code>bh.js</code></li>
+</ul>

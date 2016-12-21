@@ -1,6 +1,6 @@
 ({
     mustDeps: [
-        {block: 'breadcrumbs'},
-        {block: 'breadcrumb', elem: ['item', 'link']}
+        {block: 'bootstrap'},
+        {elem: ['item', 'link', 'active']}
     ]
 })

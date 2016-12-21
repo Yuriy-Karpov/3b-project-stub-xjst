@@ -55,14 +55,13 @@ module.exports = function (config) {
         mergedBundleName = '_merged',
         pathToMargedBundle = path.join('desktop.bundles', mergedBundleName);
 
-
     fs.existsSync(pathToMargedBundle) || fs.mkdirSync(pathToMargedBundle);
 
     merged(config, pathToMargedBundle);
 
     config.nodes('*.bundles/*', function (nodeConfig) {
         var isMergedNode = path.basename(nodeConfig.getPath()) === mergedBundleName;
-        
+
         isMergedNode || nodeConfig.addTechs([
             [techs.fileProvider, {target: '?.bemjson.js'}],
             [enbBemTechs.bemjsonToBemdecl]
@@ -148,8 +147,10 @@ module.exports = function (config) {
             
         ]);
         
-        nodeConfig.addTargets([/* '?.bemtree.js',  '?.min.css',*/ '?.css', '?.min.js']);
+
         isMergedNode || nodeConfig.addTargets(['?.b2.html', '?.html']);
+
+        nodeConfig.addTargets([/* '?.bemtree.js',  '?.min.css',*/ '?.css', '?.min.js']);
     });
     
 

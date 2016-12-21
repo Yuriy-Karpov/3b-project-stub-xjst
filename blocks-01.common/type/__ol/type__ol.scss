@@ -1,0 +1,11 @@
+ol:not([class]){
+  list-style: none;
+  counter-reset: li;
+  padding-left: 0;
+  & &{ padding-left: 25px;}
+  li:before{
+    counter-increment: li;
+    content: counters(li,".") ". ";
+    color: $brand-danger;
+  }
+}

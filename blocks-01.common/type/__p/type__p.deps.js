@@ -1,0 +1,8 @@
+({
+    mustDeps: [
+        {block: 'bootstrap'}
+    ],
+    shouldDeps: [
+        {}
+    ]
+})
