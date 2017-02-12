@@ -1,116 +1,134 @@
-# Stub to start a new BEM project
+# BEM project stub
 
-Project-stub is a template project repository used for BEM projects creation. It contains the minimal configuration files and folders you will need for quick start from scratch.
+3b-project-stub-xjst – это шаблонный репозиторий для создания БЭМ-проектов. Он содержит необходимый минимум конфигурационных файлов и директорий, который позволяет быстро развернуть проект с нуля.
+В качестве предпроцессора css используется scss (sass), реализована работа с bootstrap автозаменной классов из шглобального объекта `replaceObj` методы можно посмотеть в `config.js`.
+Реализована автогенерация документации из `*.md` файла.
 
-[![Build Status](https://travis-ci.org/bem/project-stub.svg?branch=master)](https://travis-ci.org/bem/project-stub)
+В project-stub по умолчанию подключены основные БЭМ-библиотеки:
 
-There are two main BEM libraries are linked here by default:
+* [bem-core](https://ru.bem.info/libs/bem-core/)
 
-* [bem-core](https://en.bem.info/libs/bem-core/)
-* [bem-components](https://en.bem.info/libs/bem-components/)
 
-## Installation requirements
+## Требования к установке
 
-* [Node.js 4+](https://nodejs.org) is a platform built on JavaScript runtime for easily building fast, scalable network applications.
-* [Git Bash](https://git-for-windows.github.io/) if you use Windows OS.
+* [Node.js 4+](https://nodejs.org) – это программная платформа, основанная на языке JavaScript и позволяющая легко создавать быстрые и масштабируемые сетевые приложения.
+* [Git Bash](https://git-for-windows.github.io/) – для пользователей операционной системы Windows.
 
-**Note:** If your operating system is Windows, you must run the following commands in Git Bash with administrator rights. Make sure that you launch Git Bash as an administrator.
+**Важно** Пользователям Windows необходимо выполнять все команды в Git Bash. Убедитесь, что Git Bash запущен от имени администратора.
 
-## Supported browsers
+## Поддерживаемые браузеры
 
-The list of supported browsers depends on the [bem-core](https://en.bem.info/libs/bem-core/current/#supported-browsers) and [bem-components](https://en.bem.info/libs/bem-components/current/#supported-browsers) library versions.
+Список поддерживаемых браузеров зависит от версий библиотек [bem-core](https://ru.bem.info/libs/bem-core/current/#Поддерживаемые-браузеры) и [bem-components](https://ru.bem.info/libs/bem-components/current/#Поддерживаемые-браузеры).
 
-**Note:** Internet Explorer 8.0 is not supported by default. To support IE8 you must follow the [recomendations](https://en.bem.info/libs/bem-components/current/#support-for-internet-explorer-8).
+**Важно:** Internet Explorer 8.0 не входит в перечень браузеров, поддерживаемых библиотеками по умолчанию. При необходимости можно [подключить поддержку IE8](https://ru.bem.info/libs/bem-components/current/#Поддержка-internet-explorer-8) в project-stub.
 
-## Installation
+## Установка
 
-It's as easy as...
+Клонируем репозиторий и устанавливаем все необходимые зависимости:
 
 ```bash
-git clone https://github.com/bem/project-stub.git --depth 1 my-bem-project
+git clone https://github.com/Yuriy-Karpov/3b-project-stub-xjst.git --depth 1 my-bem-project
 cd my-bem-project
 npm install
 ```
 
-**Note:** Do not use `root` rights to install `npm` dependencies.
+**Важно:** Не используйте права суперпользователя (`root`) при установке npm-зависимостей.
 
-## Usage
+## Практическое применение
 
-You may use [ENB](https://en.bem.info/toolbox/enb/) or `gulp` to build the project.
+Собрать проект можно с помощью [ENB](https://ru.bem.info/toolbox/enb/) или `gulp`.
 
-You can run `enb` commands via `./node_modules/.bin/enb`.
+Вызов всех команд `ENB` возможен с помощью `./node_modules/.bin/enb`.
 
-### Build the project
+# Список команд 
+`npm run test` - старт теста <br/>
+`npm start` - старт сервера для разработки проекта<br/>
+`npm run build` - вызвать создание бильда (сборки)<br/>
+`npm run make` - компиляция проекта<br/>
+`npm run docs` - компиляция документации<br/>
+
+## Более подробнее
+### Сборка проекта
 
 ```bash
 ./node_modules/.bin/enb make
 ```
-or
+или
 ```bash
 ./node_modules/.bin/gulp
 ```
 
-To be able to run commands without typing a full path to an executable file (`./node_modules/.bin/enb`), use:
+Чтобы не указывать путь к исполняемому файлу (`./node_modules/.bin/enb`) используйте:
 
 ```bash
 export PATH=./node_modules/.bin:$PATH
 ```
 
-Now you can use `enb` or `gulp` from the root of your project.
+Теперь исполняемые файлы локальных npm-модулей доступны из корня проекта:
 
 ```bash
 enb make
 ```
-or
-
+или
 ```bash
 gulp
 ```
 
-### The basic commands
+### Базовые команды ENB
 
-Execute the following commands in your terminal.
+Все команды необходимо выполнять в терминале локально.
 
-#### Start the dev server
+#### Старт сервера
 
 ```bash
 ./node_modules/.bin/enb server
 ```
 
-You could use the `npm start` command to start the `enb server` without specifying the full path to the `node_modules`.
+Команда `npm start` также запускает `enb server`, при этом нет необходимости указывать полный путь до `node_modules`.
 
 ```bash
 npm start
 ```
 
-The development server is running. To check it out, navigate to [http://localhost:8080/desktop.bundles/index/index.html](http://localhost:8080/desktop.bundles/index/index.html).
+На вашем компьютере запустился сервер для разработки. Чтобы проверить это, откройте в браузере [http://localhost:8080/desktop.bundles/index/index.html](http://localhost:8080/desktop.bundles/index/index.html).
 
-You may also specify different port if `8080` is already taken by some other service:
+Вы можете указать другой порт, если `8080` уже занят:
 
 ```bash
 npm start -- --port=8181
 ```
 
-#### Stop the server
+#### Остановка сервера
 
-Press `Ctrl` + `C` while the terminal is your active window to stop the server.
+Комбинация клавиш `Ctrl` + `C` в активном окне терминала остановит сервер.
 
-#### Add a block
+#### Создание блока
 
-It is possible to create blocks with `bem create` command:
+Можно создавать блоки с помощью команды `bem create` (либо `./node_modules/.bin/bem create`, если вы не дополнили переменную окружения `PATH`):
 
 ```bash
 bem create new-block
 ```
 
-#### Add a page
+По умолчанию будут использованы настройки из `.bemrc`. Подробнее об использовании `bem create` см. [в документации](https://github.com/bem-tools/bem-tools-create/blob/master/README.ru.md).
+
+#### Создание страницы
+
+С помощью `bem create`:
 
 ```bash
-mkdir -p desktop.bundles/page
+bem create desktop.bundles/page.bemjson.js
+# эквивалентно
+bem create -b page -l desktop.bundles -T bemjson.js
+```
+
+либо вручную:
+
+```bash
 touch desktop.bundles/page/page.bemjson.js
 ```
 
-And add following content:
+Со следующим содержанием:
 ```js
 module.exports = {
     block: 'page',
@@ -123,26 +141,28 @@ module.exports = {
        {
            block: 'new-block',
            content: [
-               'block content'
+               'new block content'
            ]
        }
     ]
 };
 ```
+## Полезные ссылки
 
-## Docs
+* [Собираем статическую страницу на БЭМ](https://ru.bem.info/platform/tutorials/quick-start-static/)
+* [Создаём свой проект на БЭМ](https://ru.bem.info/platform/tutorials/start-with-project-stub/)
+* [Справочное руководство по BEMJSON](https://ru.bem.info/platform/bemjson/)
+* [Руководство пользователя по BEMHTML](https://ru.bem.info/platform/bem-xjst/)
+* [Пошаговое руководство по i-bem.js](https://ru.bem.info/platform/tutorials/i-bem/)
 
-- [Static page quick-start](https://en.bem.info/platform/tutorials/quick-start-static/)
-- [Starting your own BEM project](https://en.bem.info/platform/tutorials/start-with-project-stub/)
-- [Tutorial for BEMJSON template-engine](https://en.bem.info/platform/bemjson/)
-- [Tutorial on BEMHTML](https://en.bem.info/platform/bem-xjst/)
-- [Tutorial on i-bem.js](https://en.bem.info/platform/tutorials/i-bem/)
+## Примеры проектов на основе project-stub
 
-## Project-stub based projects
+* [Мастер-класс: вы пишете БЭМ-проект, а мы подсказываем](https://github.com/bem/do-it-yourself-workshop)
+* [SSSR (Social Services Search Robot)](https://github.com/bem/sssr) — учебное приложение на полном стеке БЭМ
 
-- [SSSR (Social Services Search Robot)](https://github.com/bem/sssr) — study app with BEM full-stack
+## Видео
 
-## Videos
-
-- [BEM - Building 'em modular](https://www.youtube.com/watch?v=huQp7gr3WPE)
-- [BEM for JavaScript Talk on Camp JS](https://en.bem.info/talks/campjs-melbourne-2014/)
+* [Автоматизация БЭМ](https://www.youtube.com/watch?v=-un-YYgU6Pg)
+* [Мастер-класс: разрабатываем сайт с нуля на полном стеке БЭМ-технологий](https://ru.bem.info/talks/bemup-minsk-2014/#Мастер-класс:-разрабатываем-сайт-с-нуля-на-полном-стеке-БЭМ-технологий-—-Жека-Константинов,-Дима-Белицкий-и-Слава-Аристов)
+* [Мастер-класс наоборот: вы пишете БЭМ-проект, а мы подсказываем](https://ru.bem.info/talks/bemup-spb-2014/#Мастер-класс-наоборот:-вы-пишете-БЭМ-проект,-а-мы-подсказываем-—-Евгений-Константинов,-Дима-Белицкий,-Яндекс)
+* [Инструменты фронтенд-разработчика](https://ru.bem.info/talks/bemup-moscow-2014/#Инструменты-фронтенд-разработчика-—-Владимир-Гриненко)
