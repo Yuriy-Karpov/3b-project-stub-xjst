@@ -7,7 +7,14 @@ ivAPI.replaceObj = {
             this.default[key] = objClass[key]
         }
     }
-}
+};
+
+ivAPI.getRandom = function (min, max) {
+    var rand = min + Math.random() * (max + 1 - min);
+    rand = Math.floor(rand);
+    return rand;
+};
+
 ivAPI.fish = function ( dict, shitLevel, rus ) {
     var dictDefault = [];
     dictDefault.push('Effect if in up no depend seemed. Ecstatic elegance gay but disposed. We me rent been part what. An concluded sportsman offending so provision mr education. Bed uncommonly his discovered for estimating far. Equally he minutes my hastily. Up hung mr we give rest half. Painful so he an comfort is manners. '
@@ -33,9 +40,9 @@ ivAPI.fish = function ( dict, shitLevel, rus ) {
 
     var fish = this,
         init = function () {
-            parseDict()
+            parseDict();
             if ( shitLevel > 0 )
-                makeShitty()
+                makeShitty();
             // console.log( mixShit( '1', '2' ) )
         },
         mixShit = function ( good, bad ) {

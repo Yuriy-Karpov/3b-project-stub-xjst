@@ -1,0 +1,9 @@
+.demo-marked__html[readonly] {
+    background: #fff;
+    resize: vertical;
+    min-height: 130px;
+    &:focus {
+        border-color: #afa7a7;
+        box-shadow: none;
+    }
+}

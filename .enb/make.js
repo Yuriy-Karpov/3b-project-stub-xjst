@@ -7,9 +7,22 @@ var fs = require('fs'),
 
         // optimization
         borschik: require('enb-borschik/techs/borschik'),
-        borschikJsIncludeTech: require('enb-borschik/techs/js-borschik-include'),
+
         // css
-        // sass: require('enb-sass/techs/css-sass'),
+        // postcss: require('enb-postcss/techs/enb-postcss'),
+        // postcssPlugins: [
+        //     require('postcss-import')(),
+        //     require('postcss-each'),
+        //     require('postcss-for'),
+        //     require('postcss-simple-vars')(),
+        //     require('postcss-calc')(),
+        //     require('postcss-nested'),
+        //     require('rebem-css'),
+        //     require('postcss-url')({ url: 'inline' }),
+        //     require('autoprefixer')(),
+        //     require('postcss-reporter')()
+        // ],
+
         cssSass: require('./techs/css-sass'),
         // js
         browserJs: require('enb-js/techs/browser-js'),
@@ -19,12 +32,14 @@ var fs = require('fs'),
 
         // bemhtml
         bemhtml: require('enb-bemxjst/techs/bemhtml'),
+
         bemjsonToHtml: require('enb-bemxjst/techs/bemjson-to-html'),
 
         replaceBemClass: require('./techs/replace-bem-class')
     },
     enbBemTechs = require('enb-bem-techs'),
     merged = require('./techs/merged'),
+
     levels = [
         {path: 'libs/bem-core/common.blocks', check: false},
         {path: 'libs/bem-core/desktop.blocks', check: false},
@@ -32,11 +47,7 @@ var fs = require('fs'),
         'blocks-00.unsupported',
         'blocks-01.common',
         'blocks-02.components',
-        'blocks-03.project',
-        
-        // 'common.bootstrap',
-        // 'common.blocks',
-        // 'desktop.blocks'
+        'blocks-03.project'
     ];
 // TODO: responsive временно для разработке
 var responsive = true,
@@ -48,9 +59,13 @@ var responsive = true,
         "Safari >= 8",
         "Android >= 4",
         "iOS >= 8"
-    ]
+    ];
+/**
+ * Пути используемые в сборке
+ */
+var globalsScssPath = path.join('globals', 'globals.scss');
 
-module.exports = function (config) {
+module.exports = function(config) {
     var isProd = process.env.YENV === 'production',
         mergedBundleName = '_merged',
         pathToMargedBundle = path.join('desktop.bundles', mergedBundleName);
@@ -67,6 +82,7 @@ module.exports = function (config) {
             [enbBemTechs.bemjsonToBemdecl]
         ]);
 
+
         nodeConfig.addTechs([
             // essential
             [enbBemTechs.levels, {levels: levels}],
@@ -76,13 +92,15 @@ module.exports = function (config) {
             [enbBemTechs.files],
 
             // css
-            // [techs.sass, {
-            //     sass: {outputStyle: 'expanded'},
+            // [techs.postcss, {
+            //     target: '?.css',
+            //     oneOfSourceSuffixes: ['post.css', 'css'],
+            //     plugins: techs.postcssPlugins
             // }],
             [techs.cssSass, {
                 sass: {outputStyle: 'expanded'},
                 responsive: responsive,
-                // globals: [globalsScssPath],
+                globals: [globalsScssPath],
                 autoprefixer: {browsers: browsers}
             }],
             // bemtree
@@ -91,7 +109,8 @@ module.exports = function (config) {
             // bemhtml
             [techs.bemhtml, {
                 sourceSuffixes: ['bemhtml', 'bemhtml.js'],
-                forceBaseTemplates: true
+                forceBaseTemplates: true,
+                engineOptions : { elemJsInstances : true }
             }],
 
             // html
@@ -118,41 +137,26 @@ module.exports = function (config) {
             [techs.bemhtml, {
                 target: '?.browser.bemhtml.js',
                 filesTarget: '?.bemhtml.files',
-                sourceSuffixes: ['bemhtml', 'bemhtml.js']
+                sourceSuffixes: ['bemhtml', 'bemhtml.js'],
+                engineOptions : { elemJsInstances : true }
             }],
 
             // js
-            [techs.browserJs, {includeYM: true}],
+            [techs.browserJs, { includeYM: true }],
             [techs.fileMerge, {
                 target: '?.js',
                 sources: ['?.browser.js', '?.browser.bemhtml.js']
             }],
 
             // borschik
-
-            // Собираем JS-файл, состоящий из `borschik:include`
-            // [techs.borschikJsIncludeTech, { target: '?.pre.js' }],
-            // Обрабатываем собранный JS-файл, раскрываем найденные `borschik:include`
-            //
-            // [techs.borschik, {
-            //     target: '?.js',
-            //     source: '?.dev.js'
-            // }]
-            
-            
-            [techs.borschik, {source: '?.js', target: '?.min.js', minify: isProd}],
-            
+            [techs.borschik, { source: '?.js', target: '?.min.js', minify: isProd }],
             // убираем борщик т.к. данный функционал реализован в  techs.cssSass
-            // [techs.borschik, {source: '?.css', target: '?.min.css', minify: isProd}]
-            
+            // [techs.borschik, { source: '?.css', target: '?.min.css', minify: isProd }]
+
         ]);
-        
 
         isMergedNode || nodeConfig.addTargets(['?.b2.html', '?.html']);
 
-        nodeConfig.addTargets([/* '?.bemtree.js',  '?.min.css',*/ '?.css', '?.min.js']);
+        nodeConfig.addTargets([/* '?.bemtree.js', */ '?.min.css', '?.min.js']);
     });
-    
-
 };
-

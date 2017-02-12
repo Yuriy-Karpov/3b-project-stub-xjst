@@ -33,8 +33,24 @@ module.exports = {
                     content: [
                         {
                             elem: 'col',
-                            mods: {sm: '9'},
+                            elemMods: {sm: '9'},
                             content: [
+                                {
+                                    block: 'demo-line',
+                                    content: [
+                                        {
+                                            block: 'h2',
+                                            content: 'Тестирование докоментации с других уровней'
+                                        },
+                                        {
+                                            block: 'block-docs',
+                                        },
+                                        {
+                                            block: 'demo-marked',
+                                            name: 'block-docs'
+                                        },
+                                    ]
+                                },
                                 {
                                     block: 'demo-line',
                                     content: [
@@ -435,7 +451,7 @@ module.exports = {
                         },
                         {
                             elem: 'col',
-                            mods: {sm: '3'},
+                            elemMods: {sm: '3'},
                             content: 'тут меню'
                         }
                     ]

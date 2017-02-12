@@ -2,6 +2,7 @@ block('demo-marked')(
     content()(function () {
         var fs = require('fs');
         var marked;
+
         try {
             marked = fs.readFileSync('./html.docs/' + this.ctx.name + '/' + this.ctx.name + '.html', 'utf8');
             marked = marked.replace(/id="-"/g, '');
@@ -45,6 +46,9 @@ block('demo-marked')(
                                                 elem: 'html',
                                                 mix: [{block: 'form-control'}],
                                                 tag: 'textarea',
+                                                attrs: {
+                                                    readonly: true
+                                                },
                                                 content: this.ctx.content
                                             }
                                         ]

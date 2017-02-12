@@ -9,6 +9,7 @@
  */
 
 var fileList = require('enb/lib/file-list'),
+    buildFlow = require('enb/lib/build-flow'),
     hash = require('object-hash'),
     path = require('path'),
     fs = require('fs'),
@@ -27,7 +28,7 @@ var fileList = require('enb/lib/file-list'),
     cssLintRuleset = null;
 
 
-module.exports = require('enb/lib/build-flow').create()
+module.exports = buildFlow.create()
     .name('css-sass')
     .target('target', '?.css')
     .defineOption('sass', {}) // https://www.npmjs.com/package/node-sass#options
@@ -122,7 +123,7 @@ module.exports = require('enb/lib/build-flow').create()
                     var pre = '\n/* begin: ' + relativePath + ' */\n',
                         post = '\n/* end: ' + relativePath + ' */\n';
                     var content = pre + css.trim() + post
-                    
+
                     return content;
                 });
 

@@ -211,4 +211,4 @@ ivAPI.replaceObj.add({
     'row__col_lg-push_10': 'col-lg-push-10',
     'row__col_lg-push_11': 'col-lg-push-11',
     'row__col_lg-push_12': 'col-lg-push-12'
-})
+});

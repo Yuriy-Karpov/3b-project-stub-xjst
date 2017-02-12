@@ -15,15 +15,14 @@ module.exports = buildFlow.create()
         if (null === beautifyHtml)
             beautifyHtml = require('js-beautify').html;
 
-
         return vowFs.read(htmlFileName, 'utf-8')
             .then(function (html) {
 
                 for (var key in replaceObj) {
-                    // если есть вероятность, что на странице не будет заменяемых классов, 
+                    // если есть вероятность, что на странице не будет заменяемых классов,
                     // тогда раскомментируем проверку
                     // if (!html.match(/key/g)) {
-                    html = html.replace(new RegExp('(^|[\\s\\"\\\'])(' + key +')($|[\\s\\"\\\'])', 'g'), '$1' + replaceObj[key] + '$3')
+                    html = html.replace(new RegExp('(^|[\\s\\"\\\'])(' + key +')($|[\\s\\"\\\'])', 'g'), '$1' + replaceObj[key] + '$3');
                     // }
                 }
                 var beauty = beautifyHtml(html, {})

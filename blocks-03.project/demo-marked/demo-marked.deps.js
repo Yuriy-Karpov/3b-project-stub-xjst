@@ -1,10 +1,12 @@
 [
     ({
-        mustDeps: []
+        mustDeps: [
+            {block: 'bootstrap'}
+        ]
     }),
     ({
         shouldDeps: [
-            {elem: ['readme', 'readmore']}
+            {elem: ['readme', 'readmore', 'html']}
         ]
     })
 ]

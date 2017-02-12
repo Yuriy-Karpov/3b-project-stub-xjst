@@ -1,37 +1,38 @@
+const path = require('path');
+
 const Builder = require('gulp-bem-bundle-builder');
 const bundler = require('gulp-bem-bundler-fs');
 const gulp = require('gulp');
-const path = require('path');
 const postcss = require('gulp-postcss');
-const postcssUrl = require('postcss-url');
-const autoprefixer = require('autoprefixer');
 const debug = require('gulp-debug');
 const csso = require('gulp-csso');
 const filter = require('through2-filter').obj;
 const merge = require('merge2');
 const concat = require('gulp-concat');
-const stylus = require('gulp-stylus');
+const gulpif = require('gulp-if');
 const uglify = require('gulp-uglify');
 const bemhtml = require('gulp-bem-xjst').bemhtml;
 const toHtml = require('gulp-bem-xjst').toHtml;
-var marked = require('gulp-marked');
-// var marked = require('marked');
+const YENV = process.env.YENV || 'development';
+const isProd = YENV === 'production';
+
+const marked = require('gulp-marked'); // для документации
 
 const builder = Builder({
     levels: [
-        'libs/bem-core/common.blocks',
-        'libs/bem-core/desktop.blocks',
-        // 'libs/bem-components/common.blocks',
-        // 'libs/bem-components/desktop.blocks',
-        // 'libs/bem-components/design/common.blocks',
-        // 'libs/bem-components/design/desktop.blocks',
-        'common.blocks',
+        'node_modules/bem-core/common.blocks',
+        'node_modules/bem-core/desktop.blocks',
+        'blocks-00.supported',
+        'blocks-00.unsupported',
+        'blocks-01.common',
+        'blocks-02.components',
+        'blocks-03.project',
         'desktop.blocks'
     ],
     techMap: {
         bemhtml: ['bemhtml.js'],
         js: ['vanilla.js', 'browser.js', 'js'],
-        css: ['styl', 'css']
+        css: ['post.css', 'css']
     }
 });
 
@@ -46,28 +47,34 @@ gulp.task('build', () => {
             //     .pipe(concat(bundle.name + '.bemhtml.deps.js')),
             css: bundle =>
                 bundle.src('css')
-                    .pipe(stylus())
+                    .pipe(require('gulp-one-of')())
                     .pipe(postcss([
-                        autoprefixer({
-                            browsers: ['ie >= 10', 'last 2 versions', 'opera 12.1', '> 2%']
-                        }),
-                        postcssUrl({ url: 'inline' })
+                        require('postcss-import')(),
+                        require('postcss-each'),
+                        require('postcss-for'),
+                        require('postcss-simple-vars')(),
+                        require('postcss-calc')(),
+                        require('postcss-nested'),
+                        require('rebem-css'),
+                        require('postcss-url')({ url: 'inline' }),
+                        require('autoprefixer')(),
+                        require('postcss-reporter')()
                     ]))
-                    .pipe(csso())
-                    .pipe(concat(bundle.name + '.min.css')),
+                    .pipe(concat(bundle.name + '.min.css'))
+                    .pipe(gulpif(isProd, csso())),
             js: bundle =>
                 merge(
                     gulp.src(require.resolve('ym')),
                     bundle.src('js').pipe(filter(f => ~['vanilla.js', 'browser.js', 'js'].indexOf(f.tech))),
                     bundle.src('js').pipe(filter(file => file.tech === 'bemhtml.js'))
-                        .pipe(concat('browser.bemhtml.js')).pipe(bemhtml())
+                        .pipe(concat('browser.bemhtml.js')).pipe(bemhtml({ elemJsInstances: true }))
                 )
-                    .pipe(uglify())
-                    .pipe(concat(bundle.name + '.min.js')),
+                    .pipe(concat(bundle.name + '.min.js'))
+                    .pipe(gulpif(isProd, uglify())),
             tmpls: bundle =>
                 bundle.src('bemhtml')
                     .pipe(concat('any.bemhtml.js'))
-                    .pipe(bemhtml())
+                    .pipe(bemhtml({ elemJsInstances: true }))
                     .pipe(concat(bundle.name + '.bemhtml.js')),
             html: bundle => {
                 const bemhtmlApply = () => toHtml(bundle.target('tmpls'));
@@ -82,17 +89,29 @@ gulp.task('build', () => {
 
 gulp.task('default', gulp.series('build'));
 
+
+// генерация из .md в html
+// levelBlocks в идеале перебросить в один конфигурационный файл
+const levelBlocks = [
+    'blocks-00.supported',
+    'blocks-00.unsupported',
+    'blocks-01.common',
+    'blocks-02.components',
+    'blocks-03.project'
+];
 gulp.task('convert', function() {
-    gulp.src('blocks-01.common/*/*.md')
-        .pipe(marked({
-            // renderer: new marked.Renderer(),
-            gfm: true,
-            tables: true,
-            breaks: false,
-            pedantic: false,
-            sanitize: true,
-            smartLists: true,
-            smartypants: true
-        }))
-        .pipe(gulp.dest('html.docs/'))
+    levelBlocks.forEach((item) => {
+        gulp.src(item + '/*/*.md')
+            .pipe(marked({
+                // renderer: new marked.Renderer(),
+                gfm: true,
+                tables: true,
+                breaks: false,
+                pedantic: false,
+                sanitize: true,
+                smartLists: true,
+                smartypants: true
+            }))
+            .pipe(gulp.dest('html.docs/'));
+    });
 });

@@ -3,8 +3,8 @@ var fs = require('fs'),
     enbBemTechs = require('enb-bem-techs');
 
 module.exports = function (config, node) {
-    node || (node = '*.bundles/_merged');
 
+    node || (node = '*.bundles/_merged');
     config.nodes(node, function (nodeConfig) {
         var nodePath = nodeConfig.getPath(),
             mergedBundleName = path.basename(nodePath),
@@ -13,6 +13,7 @@ module.exports = function (config, node) {
             bemdeclFiles = [];
 
         // copy BEMDECL files to merged bundle
+
         bundles.forEach(function (bundle) {
             if (bundle === mergedBundleName || bundle[0] === '.') return;
 
